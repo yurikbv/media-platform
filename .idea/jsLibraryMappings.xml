@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="PROJECT" libraries="{@types/apollo-upload-client, @types/babel-core, @types/bcryptjs, @types/css, @types/express, @types/fs-readfile-promise, @types/graphql-react, @types/graphql-resolvers, @types/gulp, @types/html, @types/html5plus, @types/node, @types/node-sass, @types/react, @types/react-app, @types/react-autocomplete, @types/react-dom, @types/react-redux, @types/react-redux-toastr, @types/react-router, @types/react-router-dom}" />
+    <includedPredefinedLibrary name="HTTP Response Handler" />
+    <includedPredefinedLibrary name="Node.js Core" />
+  </component>
+</project>
