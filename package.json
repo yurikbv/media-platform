@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node server/server",
+    "dev": "nodemon --exec babel-node server/server --delay 2s",
     "init_prisma": "concurrently \"cd server\" \"prisma init\"",
     "migrate": "concurrently \"cd server\" \"prisma migrate dev --preview-feature\""
   },
@@ -17,11 +17,15 @@
     "@graphql-tools/schema": "^8.3.0",
     "@prisma/client": "^3.2.0",
     "apollo-server": "^3.3.0",
+    "apollo-server-express": "^3.5.0",
     "bcrypt": "^5.0.1",
     "concurrently": "^6.3.0",
     "dotenv": "^10.0.0",
+    "express": "^4.17.1",
     "graphql": "^15.6.1",
+    "graphql-upload": "^13.0.0",
     "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
     "prisma-cli": "^1.0.9"
   },
   "devDependencies": {

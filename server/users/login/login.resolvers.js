@@ -1,12 +1,12 @@
 import bcrypt from 'bcrypt';
-import client from "../../client";
+import prisma from "../../client";
 import jwt from 'jsonwebtoken';
 
 export default {
   Mutation: {
-    login: async (_, {username, password }) => {
+    login: async (_, { username, password }) => {
       // find user by args.username
-      const user = await client.user.findFirst({where: {username}});
+      const user = await prisma.user.findFirst({where: {username}});
       if (!user) return {
         ok: false,
         error: "User not found"
