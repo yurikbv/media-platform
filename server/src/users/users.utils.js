@@ -5,12 +5,14 @@ export const getUser = async(token) => {
   try {
     
     if (!token) return null;
-    
-    const { id } = await jwt.verify(token, process.env.SECRET_KEY)
-    const user = await prisma.user.findUnique({where: {id}});
-    if (user) {
-      return user
-    } else return null;
+    const verifiedToken = await jwt.verify(token, process.env.SECRET_KEY)
+    if ("id" in verifiedToken) {
+      const user = await prisma.user.findUnique({where: {id: verifiedToken["id"]}});
+      if (user) {
+        return user
+      }
+    }
+    return null;
   } catch (e) {
     console.log(e);
     return null;

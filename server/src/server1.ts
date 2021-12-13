@@ -1,10 +1,13 @@
-import express from'express';
+import express  from'express';
+import { IncomingHttpHeaders } from "http";
 import {ApolloServer} from 'apollo-server-express';
 import { graphqlUploadExpress } from 'graphql-upload';
 import logger from 'morgan';
 const path = require('path');
 import {typeDefs, resolvers} from "./schema";
-import { getUser, protectResolver } from "./users/users.utils";
+import { getUser } from "./users/users.utils";
+import prisma from "./client";
+import {ContextBody} from "./types";
 require('dotenv').config();
 const PORT = process.env.PORT
 
@@ -13,12 +16,12 @@ async function startServer() {
     resolvers,
     typeDefs,
     context: async ({req}) => {
+      // @ts-ignore
       return {
         loggedInUser: await getUser(req.headers.token),
-        protectResolver
-      }
+        prisma
     }
-  })
+  }});
   await server.start();
   const app = express();
   app.use(logger("tiny"));

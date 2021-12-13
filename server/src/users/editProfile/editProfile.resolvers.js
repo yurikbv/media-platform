@@ -1,9 +1,8 @@
 import { createWriteStream } from 'fs';
-import prisma from "../../client";
 import bcrypt from "bcrypt";
 import {protectResolver} from "../users.utils";
 
-const resolverFn = async (_, {firstName, lastName, username, email, password, bio, avatar}, {loggedInUser}) => {
+const resolverFn = async (_, {firstName, lastName, username, email, password, bio, avatar}, {loggedInUser, prisma}) => {
   let avatarUrl = null;
   if (avatar) {
     const { filename, createReadStream } = await avatar;

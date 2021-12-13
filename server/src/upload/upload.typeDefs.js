@@ -7,7 +7,4 @@ export default gql`
     mimetype: String!
     encoding: String!
   }
-  type Mutation {
-    singleUpload(file: Upload!): File!
-  }
 `
