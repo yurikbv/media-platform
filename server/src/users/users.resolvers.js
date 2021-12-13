@@ -12,6 +12,7 @@ export default {
       if (!loggedInUser) return false;
       const exists = await prisma.user.count({where: { username: loggedInUser.username, following: { some: {id} }}});
       return Boolean(exists);
-    }
+    },
+    photos: ({id}) => prisma.user.findUnique({where: {id}}).photos()
   }
 }

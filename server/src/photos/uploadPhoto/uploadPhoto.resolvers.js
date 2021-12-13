@@ -1,14 +1,14 @@
 import {protectResolver} from "../../users/users.utils";
 import {createWriteStream} from "fs";
 import prisma from "../../client";
+import {processHashtags} from "../photo.utils";
 
 export default {
   Mutation: {
     uploadPhoto: protectResolver(async (_, {photo, caption}, {loggedInUser}) => {
       let hashtagObjs = [];
       if (caption) {
-        const hashtags = caption.match(/#[\w]+/g);
-        hashtagObjs = hashtags.map(hashtag => ({where: {hashtag}, create: {hashtag}}))
+        hashtagObjs = processHashtags(caption);
       }
       const { filename, createReadStream } = await photo;
       const newFilename = `${loggedInUser.id}-${Date.now()}-${filename}`;
