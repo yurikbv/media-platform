@@ -29,5 +29,6 @@
     <orderEntry type="library" name="@types/react-router-dom" level="application" />
     <orderEntry type="library" name="@types/apollo-upload-client" level="application" />
     <orderEntry type="library" name="@types/babel-core" level="application" />
+    <orderEntry type="library" name="@types/prismjs" level="application" />
   </component>
 </module>
