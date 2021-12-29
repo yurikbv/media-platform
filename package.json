@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node server/src/server delay 2s",
+    "server": "nodemon --exec babel-node server/src/server delay 2s",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "init_prisma": "concurrently \"cd server\" \"prisma init\"",
     "migrate": "concurrently \"cd server\" \"prisma migrate dev --preview-feature\""
   },
@@ -31,10 +33,12 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "graphql": "^15.6.1",
+    "graphql-subscriptions": "^2.0.0",
     "graphql-upload": "^13.0.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
-    "prisma-cli": "^1.0.9"
+    "prisma-cli": "^1.0.9",
+    "subscriptions-transport-ws": "^0.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",

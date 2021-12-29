@@ -3,7 +3,6 @@ import prisma from "../client";
 
 export const getUser = async(token) => {
   try {
-    
     if (!token) return null;
     const verifiedToken = await jwt.verify(token, process.env.SECRET_KEY)
     if ("id" in verifiedToken) {
