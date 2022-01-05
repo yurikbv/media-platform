@@ -8,27 +8,30 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="@types/apollo-upload-client" level="application" />
+    <orderEntry type="library" name="@types/babel-core" level="application" />
     <orderEntry type="library" name="@types/bcryptjs" level="application" />
+    <orderEntry type="library" name="@types/cookie-session" level="application" />
     <orderEntry type="library" name="@types/css" level="application" />
     <orderEntry type="library" name="@types/express" level="application" />
-    <orderEntry type="library" name="@types/fs-readfile-promise" level="application" />
     <orderEntry type="library" name="@types/graphql-react" level="application" />
     <orderEntry type="library" name="@types/graphql-resolvers" level="application" />
     <orderEntry type="library" name="@types/gulp" level="application" />
     <orderEntry type="library" name="@types/html" level="application" />
     <orderEntry type="library" name="@types/html5plus" level="application" />
+    <orderEntry type="library" name="@types/jest" level="application" />
+    <orderEntry type="library" name="@types/mongodb" level="application" />
+    <orderEntry type="library" name="@types/mongoose" level="application" />
     <orderEntry type="library" name="@types/node" level="application" />
     <orderEntry type="library" name="@types/node-sass" level="application" />
+    <orderEntry type="library" name="@types/prismjs" level="application" />
     <orderEntry type="library" name="@types/react" level="application" />
     <orderEntry type="library" name="@types/react-app" level="application" />
-    <orderEntry type="library" name="@types/react-autocomplete" level="application" />
     <orderEntry type="library" name="@types/react-dom" level="application" />
     <orderEntry type="library" name="@types/react-redux" level="application" />
-    <orderEntry type="library" name="@types/react-redux-toastr" level="application" />
     <orderEntry type="library" name="@types/react-router" level="application" />
     <orderEntry type="library" name="@types/react-router-dom" level="application" />
-    <orderEntry type="library" name="@types/apollo-upload-client" level="application" />
-    <orderEntry type="library" name="@types/babel-core" level="application" />
-    <orderEntry type="library" name="@types/prismjs" level="application" />
+    <orderEntry type="library" name="@types/reactcss" level="application" />
+    <orderEntry type="library" name="@types/styled-components" level="application" />
   </component>
 </module>
