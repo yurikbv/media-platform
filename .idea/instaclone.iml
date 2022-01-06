@@ -33,5 +33,6 @@
     <orderEntry type="library" name="@types/react-router-dom" level="application" />
     <orderEntry type="library" name="@types/reactcss" level="application" />
     <orderEntry type="library" name="@types/styled-components" level="application" />
+    <orderEntry type="library" name="@types/react-helmet" level="application" />
   </component>
 </module>

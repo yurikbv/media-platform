@@ -1,94 +1,17 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faFacebookSquare } from '@fortawesome/free-brands-svg-icons'
 import styled from 'styled-components'
-
-const Container = styled.div`
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const WhiteBox = styled.div`
-  background-color: white;
-  border: 1px solid ${props => props.theme.borderColor};
-  border-radius: 1px;
-  width: 100%;
-`
-
-
-const TopBox = styled(WhiteBox)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 35px 40px 25px;
-  margin-bottom: 10px;
-  form {
-    margin-top: 35px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-`
-
-const Input = styled.input`
-  width: 100%;
-  padding: 7px;
-  background-color: #fafafa;
-  border: 1px solid ${props => props.theme.borderColor};
-  border-radius: 3px;
-  margin-top: 5px;
-  box-sizing: border-box;
-`
-
-const Button = styled.button(Input)`
-  margin-top: 12px;
-  background-color: ${props => props.theme.accent};
-  color: white;
-  text-align: center;
-  cursor: pointer;
-  font-weight: 500;
-`
-
-const BottomBox = styled(WhiteBox)`
-  padding: 20px 0;
-  text-align: center;
-  a {
-    font-weight: 600;
-    color: ${props => props.theme.accent};
-    margin-left: 5px;
-  }
-`
-
-const Wrapper = styled.div`
-  max-width: 350px;
-  width: 100%;
-`
-
-const Separator = styled.div`
-  margin: 20px 0 30px;
-  text-transform: uppercase;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  div {
-    width: 100%;
-    height: 1px;
-    background-color: ${props => props.theme.borderColor};
-  }
-  span {
-    margin: 0 5px;
-    color: #8e8e8e;
-    font-weight: 600;
-  }
-`
+import { useForm } from "react-hook-form";
+import { ErrorMessage } from "@hookform/error-message";
+import routes from "../../routes_var";
+import AuthLayout from "../Layouts/AuthLayout";
+import Button from "../UI/auth/Button";
+import Separator from "../UI/auth/Separator";
+import FormBox from "../UI/auth/FormBox";
+import BottomBox from "../UI/auth/BottomBox";
+import PageTitle from "../UI/PageTitle";
+import {ErrorMessageP, SInput} from "../sharedStyles";
 
 const FacebookLogin = styled.div`
   color: #385285;
@@ -99,34 +22,44 @@ const FacebookLogin = styled.div`
 `
 
 const Login = () => {
+  
+  const {register, handleSubmit, formState: { errors, isValid} } = useForm(
+    {criteriaMode: "all", mode: "onChange"});
+  
+  const onSubmitValid = (data) => {
+  
+  }
+  
   return (
-    <Container>
-      <Wrapper>
-        <TopBox>
-          <div><FontAwesomeIcon icon={faInstagram} size="3x"/></div>
-          <form>
-            <Input type="text" placeholder="Username"/>
-            <Input type="password" placeholder="Password"/>
-            <Button type="submit">Log in</Button>
-          </form>
-          <Separator>
-            <div/>
-            <span>Or</span>
-            <div/>
-          </Separator>
-          <FacebookLogin>
-            <FontAwesomeIcon icon={faFacebookSquare} />
-            <span>Log in with Facebook</span>
-          </FacebookLogin>
-        </TopBox>
-        <BottomBox>
-          <span>
-            Don't have an account?
-          </span>
-          <Link to="/signup">Sign up</Link>
-        </BottomBox>
-      </Wrapper>
-    </Container>
+    <AuthLayout>
+      <PageTitle title="Log in" />
+      <FormBox>
+        <div><FontAwesomeIcon icon={faInstagram} size="3x"/></div>
+        <form onSubmit={handleSubmit(onSubmitValid)}>
+          
+          <SInput {...register("username", {required: "Username is required.", minLength: {
+              value: 5,
+              message: "This input must exceed 4 characters"} })
+          }
+                 type="text" placeholder="Username" hasError={errors.username}/>
+          <ErrorMessage errors={errors} name="username" render={({ message }) =>
+            <ErrorMessageP>{message}</ErrorMessageP>}/>
+          
+          <SInput {...register("password", { required: "Password is required."})}
+                 type="password" placeholder="Password" hasError={errors.password}/>
+          <ErrorMessage errors={errors} name="password" render={({ message }) =>
+            <ErrorMessageP>{message}</ErrorMessageP>}/>
+          
+          <Button type="submit" disabled={!isValid}>Log in</Button>
+        </form>
+        <Separator text="or" />
+        <FacebookLogin>
+          <FontAwesomeIcon icon={faFacebookSquare} />
+          <span>Log in with Facebook</span>
+        </FacebookLogin>
+      </FormBox>
+      <BottomBox cta="Don't have an account?" linkText="Sign up" link={routes.signup} />
+    </AuthLayout>
   );
 };
 
