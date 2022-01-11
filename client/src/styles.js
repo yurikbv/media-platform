@@ -3,7 +3,9 @@ import reset from 'styled-reset';
 
 export const lightTheme = {
   accent: "#0095f6",
-  borderColor: "rgb(219,219,219)"
+  borderColor: "rgb(219,219,219)",
+  bgColor: "#FAFAFA",
+  fontColor: "rgb(38,38,38)"
 }
 
 export const darkTheme = {
@@ -24,9 +26,9 @@ export const GlobalStyles = createGlobalStyle`
   }
   body {
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-    background-color: #FAFAFA;
+    background-color: ${props => props.theme.bgColor};
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
-    color: rgb(38,38,38);
+    color: ${props => props.theme.fontColor};
   }
 `

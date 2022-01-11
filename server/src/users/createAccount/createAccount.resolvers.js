@@ -14,11 +14,12 @@ export default {
         }
         // hash password
         const hashedPassword = await bcrypt.hash(password, 10);
-        
         // save and return the user
-        return client.user.create({data: {
+        const user = await client.user.create({data: {
             username, email, firstName, lastName, password: hashedPassword
           }})
+        if (!user) return {ok: false, error: 'Something went wrong in DB'}
+        return {ok: true}
       } catch (e) {
         console.log(e);
         return e;

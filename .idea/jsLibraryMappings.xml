@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="file://$PROJECT_DIR$/client/node_modules" libraries="{instaclone/client/node_modules}" />
     <file url="file://$PROJECT_DIR$/node_modules" libraries="{instaclone/node_modules}" />
-    <file url="PROJECT" libraries="{@types/apollo-upload-client, @types/babel-core, @types/bcryptjs, @types/cookie-session, @types/css, @types/express, @types/graphql-react, @types/graphql-resolvers, @types/gulp, @types/html, @types/html5plus, @types/jest, @types/mongodb, @types/mongoose, @types/node, @types/node-sass, @types/prismjs, @types/react, @types/react-app, @types/react-dom, @types/react-helmet, @types/react-redux, @types/react-router, @types/react-router-dom, @types/reactcss, @types/styled-components, instaclone/client/node_modules, instaclone/node_modules}" />
+    <file url="PROJECT" libraries="{@types/apollo-upload-client, @types/babel-core, @types/bcryptjs, @types/cookie-session, @types/css, @types/express, @types/graphql-react, @types/graphql-resolvers, @types/gulp, @types/html, @types/html5plus, @types/jest, @types/mongodb, @types/mongoose, @types/node, @types/node-sass, @types/react, @types/react-app, @types/react-dom, @types/react-redux, @types/react-router, @types/react-router-dom, @types/reactcss, instaclone/node_modules}" />
     <includedPredefinedLibrary name="HTTP Response Handler" />
     <includedPredefinedLibrary name="Node.js Core" />
   </component>
