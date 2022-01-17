@@ -1,7 +1,28 @@
-const size = 0 || 200;
-const size2 = 0 ?? 200;
-const size3 = 0 && 200;
+const delay = (ms) => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      console.log(ms);
+      resolve();
+    }, ms, ms);
+  })
+}
 
-console.log(size)
-console.log(size2)
-console.log(size3)
+const test = () => {
+  delay(400).then(() => {
+    console.log('finished')
+  })
+};
+
+test()
+
+let obj = {
+  a: 1,
+  b: {
+    c: 2
+  }
+}
+
+let obj2 = JSON.parse(JSON.stringify(obj))
+obj2.b.c = 4;
+console.log(obj)
+console.log(obj2)

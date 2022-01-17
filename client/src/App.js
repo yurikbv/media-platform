@@ -13,6 +13,7 @@ import {darkTheme, GlobalStyles, lightTheme} from "./styles";
 import SignUp from "./components/LoginRegister/SignUp";
 import routes from "./routes_var";
 import RequireNoAuth from "./routes/RequireNoAuth";
+import Header from "./components/Header/Header";
 
 library.add(faInstagram);
 
@@ -26,6 +27,7 @@ function App() {
         <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
           <GlobalStyles />
           <BrowserRouter>
+            <Header />
             <Routes>
               <Route element={<RequireAuth />}>
                 <Route path={routes.home} element={<Home />}/>
